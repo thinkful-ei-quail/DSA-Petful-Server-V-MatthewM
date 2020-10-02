@@ -11,8 +11,9 @@ router.get('/', (req, res) => {
   let pets = Pets.get()
   if (!pets) {
     return res.status(400).json({error: {message: 'No pets list'}})
+  } else {
+    res.json(pets);
   }
-  res.json(pets);
 })
 
 router.delete('/', json, (req, res) => {
@@ -20,10 +21,10 @@ router.delete('/', json, (req, res) => {
   let {type} = req.body;
   try {
     Pets.dequeue(type);
+    res.status(200);
   } catch (error) {
-    return res.status(400).json(error.message);
+    res.status(400).json(error.message);
   }
-  res.status(200);
 })
 
 module.exports = router

@@ -12,19 +12,16 @@ store.people.forEach(person => people.enqueue(person))
 module.exports = {
   get() {
     // Return all people in the queue.
-    return people
+    return people.all();
   },
 
   enqueue(person) {
     // Add a person to the queue.
+    people.enqueue(person);
   },
 
   dequeue() {
     // Remove a person from the queue.
-  },
-  
-  // TODO Temporary function for testing and setting up client.
-  all() {
-    return store.people;
+    people.dequeue();
   }
 }

@@ -7,15 +7,23 @@ const router = express.Router()
 
 router.get('/', (req, res) => {
   // Return all the people currently in the queue.
-  people = People.all()// TODO Temporary function for testing and setting up client.
+  people = People.get()
   if (!people) {
-    return res.status(400).json({error: {message: 'No people list'}});
+    res.status(400).json({error: {message: 'No people list'}});
+  } else {
+    res.json(people);
   }
-  res.json(people);
 })
 
 router.post('/', json, (req, res) => {
   // Add a new person to the queue.
+  let {person} = req.body;
+  try { 
+    People.enqueue(person);
+    res.status(200);
+  } catch (error) {
+    res.status(400).json(error.message);
+  }
 })
 
 module.exports = router
