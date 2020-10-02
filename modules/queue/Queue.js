@@ -45,11 +45,13 @@ class Queue {
 
   all() {
     // Return all items in the queue as a array.
-    const node = this.first;
+    let node = this.first;
     const results = [];
-    while (node.last != null) {
+    while (node.next != null) {
       results.push(node.value);
+      node = node.next;
     }
+    console.log(results);
     return results;
   }
 }
