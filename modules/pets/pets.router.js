@@ -1,9 +1,6 @@
 const express = require('express')
 const json = require('body-parser').json()
 
-// Remove when pets.services is ready.
-const {cats, dogs} = require('../../store');
-
 const Pets = require('./pets.service')
 const People = require('../people/people.service')
 
@@ -13,7 +10,16 @@ router.get('/', (req, res) => {
   // Return all pets currently up for adoption.
 
   // Dummy test return data.
-  return [cats, dogs];
+  // return [cats, dogs];
+  Pets.all()
+    .then(pets => {
+      if (!pets) {
+        return res.status(400).json({error: {message: 'No pets list'}})
+      }
+      res.json(pets);
+      next();
+    })
+    .catch(next);
 })
 
 router.delete('/', json, (req, res) => {

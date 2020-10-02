@@ -1,6 +1,9 @@
 const Queue = require('../queue/Queue')
 const store = require('../../store')
 
+// Remove when pets.services is ready.
+const {cats, dogs} = require('../../store');
+
 // Set up initial data.
 // --------------------
 
@@ -21,5 +24,9 @@ module.exports = {
 
   dequeue(type) {
     // Remove a pet from the queue.
+  },
+
+  all() {
+    return [cats, dogs];
   }
 }
