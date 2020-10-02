@@ -22,6 +22,9 @@ module.exports = {
 
   dequeue() {
     // Remove a person from the queue.
+    if (!people.first){
+      return new Error({error: {message: 'Aint no average Joes here'}})
+    }
     people.dequeue();
   }
 }

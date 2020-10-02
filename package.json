@@ -6,7 +6,8 @@
     "dev": "nodemon server.js",
     "start": "node server.js",
     "predeploy": "npm audit",
-    "deploy": "git push heroku main"
+    "deploy": "git push heroku main",
+    "postdeploy": "heroku config:set CLIENT_ORIGIN=https://dsa-petful-v-matthewm.vercel.app"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
