@@ -11,15 +11,11 @@ router.get('/', (req, res) => {
 
   // Dummy test return data.
   // return [cats, dogs];
-  Pets.all()
-    .then(pets => {
-      if (!pets) {
-        return res.status(400).json({error: {message: 'No pets list'}})
-      }
-      res.json(pets);
-      next();
-    })
-    .catch(next);
+  pets = Pets.all()
+  if (!pets) {
+    return res.status(400).json({error: {message: 'No pets list'}})
+  }
+  res.json(pets);
 })
 
 router.delete('/', json, (req, res) => {
