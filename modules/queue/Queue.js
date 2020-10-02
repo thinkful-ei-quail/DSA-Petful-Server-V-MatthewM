@@ -51,7 +51,6 @@ class Queue {
       results.push(node.value);
       node = node.next;
     }
-    console.log(results);
     return results;
   }
 }
