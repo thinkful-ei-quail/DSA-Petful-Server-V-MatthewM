@@ -10,7 +10,7 @@ router.get('/', (req, res) => {
   // Return all pets currently up for adoption. One cat and One dog.
   let pets = Pets.get()
   if (!pets) {
-    return res.status(400).json({error: {message: 'No pets list'}})
+    res.status(400).json({error: {message: 'No pets list'}})
   } else {
     res.json(pets);
   }
