@@ -20,7 +20,7 @@ router.post('/', json, (req, res) => {
   let {person} = req.body;
   try { 
     People.enqueue(person);
-    res.status(200);
+    res.status(200).json(People.get());
   } catch (error) {
     res.status(400).json(error.message);
   }
