@@ -30,7 +30,7 @@ module.exports = {
       pets.cats.dequeue();
       pets.dogs.dequeue();
     } else {
-      return new Error({error: {message: `${type} is not a valid type. 'cat' or 'dog' only.`}})
+      throw new Error({error: {message: `${type} is not a valid type. 'cat' or 'dog' only.`}})
     }
     return false;
   },
