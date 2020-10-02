@@ -24,6 +24,7 @@ module.exports = {
     // Remove a pet from the queue.
   },
 
+  // TODO Temporary function for testing and setting up client.
   all() {
     return [cats, dogs];
   }

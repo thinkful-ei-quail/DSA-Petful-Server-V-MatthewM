@@ -9,9 +9,7 @@ const router = express.Router()
 router.get('/', (req, res) => {
   // Return all pets currently up for adoption.
 
-  // Dummy test return data.
-  // return [cats, dogs];
-  pets = Pets.all()
+  pets = Pets.all()// TODO Temporary function for testing and setting up client.
   if (!pets) {
     return res.status(400).json({error: {message: 'No pets list'}})
   }

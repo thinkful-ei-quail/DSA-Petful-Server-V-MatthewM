@@ -20,5 +20,10 @@ module.exports = {
 
   dequeue() {
     // Remove a person from the queue.
+  },
+  
+  // TODO Temporary function for testing and setting up client.
+  all() {
+    return store.people;
   }
 }
