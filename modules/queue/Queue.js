@@ -47,7 +47,7 @@ class Queue {
     // Return all items in the queue as a array.
     let node = this.first;
     const results = [];
-    while (node.next != null) {
+    while (node != null) {
       results.push(node.value);
       node = node.next;
     }
