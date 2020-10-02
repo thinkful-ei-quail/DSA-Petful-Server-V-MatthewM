@@ -21,6 +21,7 @@ router.delete('/', json, (req, res) => {
   let {type} = req.body;
   try {
     Pets.dequeue(type);
+    People.dequeue();
     res.status(200);
   } catch (error) {
     res.status(400).json(error.message);
