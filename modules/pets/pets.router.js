@@ -20,8 +20,8 @@ router.delete('/', json, (req, res) => {
   // Remove a pet from adoption.
   let {type} = req.body;
   try {
-    Pets.dequeue(type);
     People.dequeue();
+    Pets.dequeue(type);
     res.status(200).json({people: People.get(), pets: Pets.get()});
   } catch (error) {
     res.status(400).json(error.message);
