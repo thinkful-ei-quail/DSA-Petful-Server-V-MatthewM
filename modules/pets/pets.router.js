@@ -22,7 +22,7 @@ router.delete('/', json, (req, res) => {
   try {
     Pets.dequeue(type);
     People.dequeue();
-    res.status(200);
+    res.status(200).json({people: people.get(), pets: Pets.get()});
   } catch (error) {
     res.status(400).json(error.message);
   }
