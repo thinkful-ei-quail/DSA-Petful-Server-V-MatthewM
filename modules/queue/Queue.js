@@ -2,7 +2,6 @@ class _node {
   constructor(value) {
     this.value = value;
     this.next = null;
-    this.last = null;
   }
 }
 
@@ -31,7 +30,6 @@ class Queue {
     }
     const node = this.first;
     this.first = this.first.next;
-    this.first.last = null;
     if (node == this.last) {
       this.last = null;
     }
