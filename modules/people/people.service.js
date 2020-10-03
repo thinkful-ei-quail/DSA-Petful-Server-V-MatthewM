@@ -23,7 +23,7 @@ module.exports = {
   dequeue() {
     // Remove a person from the queue.
     if (people.first === null){
-      throw new Error({error: 'Aint no average Joes here'});
+      throw new Error('Aint no average Joes here');
     }
     people.dequeue();
   }
