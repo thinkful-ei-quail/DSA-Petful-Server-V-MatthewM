@@ -23,15 +23,20 @@ module.exports = {
   dequeue(type) {
     // Remove a pet from the queue.
     if (type === 'cat') {
-      pets.cats.dequeue();
+      let cat = pets.cats.dequeue();
+      pets.cats.enqueue(cat);
     } else if (type === 'dog') {
-      pets.dogs.dequeue();
+      let dog = pets.dogs.dequeue();
+      pets.dogs.enqueue(dog);
     } else if (type === 'both') {
-      pets.cats.dequeue();
-      pets.dogs.dequeue();
+      let cat = pets.cats.dequeue();
+      let dog = pets.dogs.dequeue();
+      pets.dogs.enqueue(dog);
+      pets.cats.enqueue(cat);
     } else {
       throw new Error({error: {message: `${type} is not a valid type. 'cat' or 'dog' only.`}})
     }
     return false;
   },
+  
 }
